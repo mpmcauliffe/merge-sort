@@ -3,6 +3,7 @@ package algorithms;
 public class Main {
 
     public static void main(String[] args) {
+
         /**  initialize unsorted array with assigned elements **/
         int[] intArray = { 20, 35, -15, 7, 55, 1, -22 };
 
@@ -64,6 +65,7 @@ public class Main {
          **/
         if (input[mid - 1] <= input[mid]) { return; }
 
+
         /**
          *      VARIABLES
          *          --int start     -- the first element of the array
@@ -77,10 +79,25 @@ public class Main {
 
         int[] temp = new int[end - start];
 
+        System.out.print(i + " || " + j + " || " + end + "\n");
+
+
+        /**
+         *      WHILE LOOP, given { 20, 35, -15, 7, 55, 1, -22 }
+         *
+         *      { __ | __ }
+         *
+         **/
         while (i < mid && j < end) {
+            System.out.print(temp[tempIndex] + "  " + input[i] + "  " + input[j]);
+            System.out.print("\n");
+
             temp[tempIndex++] = input[i] <= input[j] ? input[i++] : input[j++];
+
+            for (int num: temp) { System.out.print(num + "  "); }
         }
 
+        System.out.println("\n");
         System.arraycopy(input, i, input, start + tempIndex, mid - i);
         System.arraycopy(temp, 0, input, start, tempIndex);
     }
